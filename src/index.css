@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+:root {
+  /* Color Palette - High Contrast WCAG Audited */
+  --color-primary-sage: #8A9A5B;
+  --color-sage-light: #F4F6F0;
+  --color-sage-hover: #77864B;
+  --color-warm-terracotta: #E2725B;
+  --color-terracotta-hover: #D05E47;
+  --color-terracotta-light: #FDF1EE;
+  --color-crisp-white: #FFFFFF;
+  --color-soft-charcoal: #1A202C; /* Deep Charcoal for optimal WCAG AAA readability */
+  --color-charcoal-muted: #4A5568; /* Solid medium-dark slate for secondary text */
+  --color-border-subtle: #E2E8F0;
+
+  /* Typography */
+  --font-heading: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Nunito', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+  color: #1A202C;
+}
+
+body, p, span, button, input, select, textarea, .font-body {
+  font-family: var(--font-body);
+  color: var(--color-soft-charcoal);
+}
+
+/* Universal high-contrast placeholder enhancement */
+input::placeholder, textarea::placeholder {
+  color: #4A5568 !important;
+  opacity: 1 !important;
+}
+
+.font-display {
+  font-family: var(--font-heading);
+}
+
+.font-sans {
+  font-family: var(--font-body);
+}
+
+/* 8pt Spacing Grid Helpers */
+.gap-8pt-1 { gap: 8px; }
+.gap-8pt-2 { gap: 16px; }
+.gap-8pt-3 { gap: 24px; }
+.gap-8pt-4 { gap: 32px; }
+.gap-8pt-6 { gap: 48px; }
+
+.p-8pt-1 { padding: 8px; }
+.p-8pt-2 { padding: 16px; }
+.p-8pt-3 { padding: 24px; }
+.p-8pt-4 { padding: 32px; }
+
+/* Pill-shaped buttons with subtle hover lifts */
+.btn-pill {
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.btn-pill:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Primary Sage Button */
+.btn-pill-primary {
+  background-color: var(--color-primary-sage);
+  color: #FFFFFF;
+}
+.btn-pill-primary:hover {
+  background-color: var(--color-sage-hover);
+}
+
+/* Warm Terracotta CTA Button */
+.btn-pill-cta {
+  background-color: var(--color-warm-terracotta);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(226, 114, 91, 0.25);
+}
+.btn-pill-cta:hover {
+  background-color: var(--color-terracotta-hover);
+  box-shadow: 0 6px 20px rgba(226, 114, 91, 0.35);
+}
+
+/* Recipe Card: 8px border radius with soft drop shadow */
+.card-recipe-8px {
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.card-recipe-8px:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border-color: #D3D8C8;
+}
+
+/* Focus styles */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-primary-sage);
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar for clean carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(168, 162, 158, 0.25);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 162, 158, 0.45);
+}
+
+/* Safe areas for iOS */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+}
+
+/* Focus styles */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #557A61;
+  outline-offset: 2px;
+}
+
+/* Clean recipe printing */
+@media print {
+  header, nav, aside, .no-print, button {
+    display: none !important;
+  }
+  body, main {
+    background: #ffffff !important;
+    color: #1c1917 !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  #core-recipe-module {
+    border: 1px solid #d6d3d1 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+}
+
+/* Focus Mode Selected Elements */
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) {
+  background-color: #db160a !important;
+}
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) {
+  background-color: #33a261 !important;
+}
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(9) {
+  background-color: #027171 !important;
+}
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(3) > div:nth-of-type(2) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) {
+  background-color: #4d6d69 !important;
+}
+
+/* Modification 1: Global Recipe Category Badges on Recipe Cards */
+article div.absolute.top-2\.5.left-2\.5 > span,
+article div.absolute.bottom-2\.5.left-2\.5 {
+  background-color: #4d6d69 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Modification 2: Global Recipe Title Headings */
+.recipe-title-heading,
+.single-recipe-title {
+  color: #aeb5df !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 800 !important;
+}
+

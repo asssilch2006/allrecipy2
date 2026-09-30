@@ -1,0 +1,8 @@
+{
+  "name": "Remix allrecipy.com - Smart Recipe Discovery, Meal Planner \u0026 AI Cooking",
+  "description": "Discover chef-crafted recipes, plan weekly meals, generate smart grocery lists, and cook hands-free with AI assistance on allrecipy.com.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
